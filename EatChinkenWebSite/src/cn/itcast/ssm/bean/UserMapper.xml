@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.itcast.ssm.bean.UserMapper" >
+ 	<insert id="insertUser" parameterType="cn.itcast.ssm.bean.User">
+		 insert into User(userName,userPassword,userLv,ifFindFriend,showMessage)  values(#{userName},#{userPassword},1,1,1)
+	</insert>
+	
+	<select id="selectUser" resultType="String" parameterType="String">
+		select userPassword from User where userName=#{userName}
+	</select>
+	
+	<select id="selectUserList" resultType="cn.itcast.ssm.bean.User">
+		select * from User where ifFindFriend=1
+	</select>
+</mapper>

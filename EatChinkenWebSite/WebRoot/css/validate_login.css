@@ -1,0 +1,91 @@
+@charset "utf-8";
+body, ul, li, h1, h2, h3, h4, h5, h6, p, form, dl, dt, dd { margin: 0px; padding: 0px; 
+ font-weight: normal; }
+ul { list-style: none; }
+img { border-style: none; }
+
+
+.clear {clear:both;}
+.clear:before,.clear:after {content:"";display:table;}
+.clear:after {clear:both;}
+
+/* form-div */
+.form-div{background-color:rgba(245,240,240,1); border-radius:10px; width:390px; padding:0 0 20px 0px; font-size:15px;box-shadow:inset 0px 0px 10px rgba(255,255,255,0.5),0px 0px 15px rgba(75,75,75,0.3); text-align:left;margin-left: 40%;}
+
+.form-div input[type="text"], .form-div input[type="password"], .form-div input[type="email"]{width:210px; margin:0px; line-height:20px; font-size:16px;}
+.form-div input[type="checkbox"]{margin:20px 0 20px 10px;}
+.form-div input[type="button"],.form-div input[type="submit"]{margin:10px 20px 0 0;}
+
+.form-div table{margin:0 auto; text-align:right; color:rgba(64,64,64,1.00);}
+.form-div table img{vertical-align:middle; margin:0 0 5px 0;}
+.footer{color:rgba(64,64,64,1.00); font-size:12px; margin-top:30px;}
+.form-div .buttons{float:right;}
+
+input[type="text"], input[type="password"], input[type="email"] {
+    border-radius:8px;
+    box-shadow:inset 0 2px 5px #eee;
+    padding:5px;
+    border:1px solid #D4D4D4;
+    color:#333333;
+    margin-top:0px;
+}
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus {
+    border:1px solid #50afeb;
+	outline:none;
+}
+input[type="button"], input[type="submit"] {
+    padding:7px 15px;
+    background-color:#FF7E00;
+    text-align:center;
+    border-radius:5px;
+    overflow:hidden;
+    min-width:80px;
+    border:none;
+	color:#FFF;
+	box-shadow:1px 1px 1px rgba(75,75,75,0.3);
+}
+input[type="button"]:hover, input[type="submit"]:hover {
+    background-color:#5a88c8;
+}
+input[type="button"]:active, input[type="submit"]:active {
+    background-color:#5a88c8;
+}
+
+.login_register1{
+	float:left;
+	background-color:#E6DFDF;
+	
+	width:195px;
+	height:38px;
+	text-align:center;
+	display:block;
+	line-height:38px;
+	border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #E6DFDF;
+	
+}
+.active_ls{
+	background:#FF7E00;
+	
+	border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(255, 126, 0);
+}
+.formheight{
+	height:298px;
+}
+#register-form{
+	display:none;
+}
+
+.selectAddress{height:35px; float:left;}
+#select_province{height:35px; border:1px #ccc solid; width:70px;border-radius:5px;}
+#select_city{height:35px; border:1px #ccc solid;width:75px;border-radius:5px;}
+#select_area{height:35px; border:1px #ccc solid;width:75px;border-radius:5px;}
+#SWFUpload_0{border:1px solid #ccc;border-radius:5px;}
+
+
+
+
+
