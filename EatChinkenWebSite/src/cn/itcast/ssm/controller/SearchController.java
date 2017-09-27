@@ -24,7 +24,9 @@ public class SearchController extends BaseController{
 	
 	@Resource(name="UserService")
 	private UserService userService;
-	
+	/*
+	 * 普通搜索，对开放信息的用户进行搜索
+	 * */
 	@RequestMapping ( "/normalSearch" )
 	public ModelAndView normalSearch() throws Exception {
 		ModelAndView mv = this.getModelAndView();
@@ -39,6 +41,24 @@ public class SearchController extends BaseController{
 		
 		mv.addObject("ar",ar);
 		mv.setViewName("SearchResult");
+		return mv;
+	}
+	
+	
+	/*
+	 * 点击选择的战友 进入联系战友界面
+	 */
+	@RequestMapping ( "/enterConnectionPage" )
+	public ModelAndView enterConnectionPage() throws Exception {
+		ModelAndView mv = this.getModelAndView();
+		PageData pd = new PageData();
+		pd = this.getPageData();
+		HttpServletRequest request = this.getRequest();
+		
+		User user = userService.selectUserAllMessage(pd);
+		System.out.println(user.getUserName());
+		mv.addObject("ar",user);
+		mv.setViewName("SendMessage");
 		return mv;
 	}
 }

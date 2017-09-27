@@ -1,5 +1,10 @@
-#Tue Sep 19 14:26:55 CST 2017
+#Tue Sep 26 17:33:48 CST 2017
 eclipse.preferences.version=1
+encoding//WebRoot/WEB-INF/jsp/MyMessage.jsp=UTF-8
 encoding//WebRoot/WEB-INF/jsp/SearchResult.jsp=UTF-8
+encoding//WebRoot/WEB-INF/jsp/SendMessage.jsp=UTF-8
+encoding//WebRoot/WEB-INF/jsp/common/Navigation.jsp=UTF-8
+encoding//WebRoot/WEB-INF/jsp/common/NavigationMessage.jsp=UTF-8
 encoding//WebRoot/index.jsp=UTF-8
 encoding//WebRoot/js/validate_login.js=UTF-8
+encoding//src/cn/itcast/ssm/utils/DateUtil.java=UTF-8

@@ -1,4 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ page import="cn.itcast.ssm.bean.*" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -9,7 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>MainPage</title>
+    <title>发送站内信</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -22,9 +25,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 	<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/htmleaf-demo.css">
 	<link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 	<link href="http://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="css/htmleaf-demo.css">
+	
 	<style type="text/css">
 		.demo{
 			height: 400px;
@@ -207,49 +211,64 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  	<div class="container">
-	    <jsp:include page="common/Navigation.jsp"></jsp:include>
-	    <div class="row">
-		    <div class="htmleaf-container">
-			<header class="htmleaf-header">
-				<h1>战友搜索系统</h1>
-			</header>
-			<div class="demo">
-			        <div class="container">
-			            <div class="row">
-			                <div class="col-md-offset-3 col-md-6">
-			                    <div class="tab" role="tabpanel">
-			                        <!-- Nav tabs -->
-			                        <ul class="nav nav-tabs" role="tablist">
-			                            <li role="presentation" class="active"><a href="#Section1" aria-controls="home" role="tab" data-toggle="tab"><span><i class="fa fa-globe"></i></span> 大范围寻找</a></li>
-			                            <li role="presentation"><a href="#Section2" aria-controls="profile" role="tab" data-toggle="tab"><span><i class="fa fa-rocket"></i></span> 精准定位</a></li>
-			                            <li role="presentation"><a href="#Section3" aria-controls="messages" role="tab" data-toggle="tab"><span><i class="fa fa-user-md"></i></span> 在线战友</a></li>
-			                        </ul>
-			                        <!-- Tab panes -->
-			                        <div class="tab-content tabs">
-			                            <div role="tabpanel" class="tab-pane fade in active" id="Section1">
-			                                <h3>大范围寻找</h3>
-			                                <p>对于网站当前允许搜素的战友进行查询</p>
-		                                	<div class="col-sm-3">
-							                    <a href="SearchController/normalSearch" class="btn btn-lg blue">
-							                        <span class="fa fa-home"></span>开始搜索
-							                    </a>
-							                </div>
-			                            </div>
-			                            <div role="tabpanel" class="tab-pane fade" id="Section2">
-			                                <h3>精准定位</h3>
-			                            </div>
-			                            <div role="tabpanel" class="tab-pane fade" id="Section3">
-			                                <h3>在线战友</h3>
-			                            </div>
-			                        </div>
-			                    </div>
-			                </div>
-			            </div>
-			        </div>
-			    </div>
-			</div>
-		 </div>
-	 </div>
+    <div class="container">
+    	<jsp:include page="common/Navigation.jsp"></jsp:include>
+    	<div class="row">
+    		<div class="col-md-4">
+				<table class="table table-hover">
+					<caption><b>战友资料</b></caption>
+					<tbody>
+						<tr>
+							<td>头像</td>
+							<td><img class="img-circle" src="Img/userPhoto/${ar.photo }" style="width:100px;height:100px;"></td>
+						</tr>
+						<tr>
+							<td>昵称</td>
+							<td>${ar.userName }</td>
+						</tr>
+						<tr>
+							<td>steamID</td>
+							<td>${ar.userSteamId }</td>
+						</tr>
+						<tr>
+							<td>用户等级</td>
+							<td>${ar.userLv }</td>
+						</tr>
+						<tr>
+							<td>用户邮箱</td>
+							<td>${ar.email }</td>
+						</tr>
+						<tr>
+							<td>用户简介</td>
+							<td>${ar.introduction }</td>
+						</tr>
+					</tbody>
+				</table>    			
+    		</div>
+    		<div class="col-md-8">
+    		 <div class="tab" role="tabpanel">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#Section1" aria-controls="home" role="tab" data-toggle="tab"><span><i class="fa fa-globe"></i></span> 发送邀请</a></li>
+                    <li role="presentation"><a href="#Section3" aria-controls="messages" role="tab" data-toggle="tab"><span><i class="fa fa-user-md"></i></span> 发送站内信</a></li>
+                </ul>
+    			<div class="tab-content tabs">
+                     <div role="tabpanel" class="tab-pane fade in active" id="Section1">
+                         <h3>发送邀请</h3>
+                         <p>发送邀请函，其中包括您的基本信息</p>
+                        	<div class="col-sm-3">
+		                 <a href="SearchController/normalSearch" class="btn btn-lg blue">
+		                     <span class="fa fa-home"></span>一起吃鸡！
+		                 </a>
+          		   	 </div>
+                     </div>
+                     <div role="tabpanel" class="tab-pane fade" id="Section3">
+                         <h3>发送站内信</h3>
+                     </div>
+                </div>
+              </div>
+    		</div>
+    	</div>
+    </div>
   </body>
 </html>

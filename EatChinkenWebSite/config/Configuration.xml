@@ -22,5 +22,6 @@
 
      <mappers>
         <mapper resource="cn/itcast/ssm/bean/UserMapper.xml"/>
+        <mapper resource="cn/itcast/ssm/bean/WebUserMessageMapper.xml"/>
     </mappers>
 </configuration>

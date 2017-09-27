@@ -6,6 +6,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import cn.itcast.ssm.bean.User;
 import cn.itcast.ssm.dao.DaoSupport;
 import cn.itcast.ssm.utils.PageData;
 
@@ -31,5 +32,17 @@ public class UserService {
 	
 	public List selectUserList(PageData pd)throws Exception{ 
 		return (List) dao.findForList("cn.itcast.ssm.bean.UserMapper.selectUserList", pd);
+	}
+	
+	public User selectUserAllMessage(PageData pd)throws Exception{
+		return (User) dao.findForObject("cn.itcast.ssm.bean.UserMapper.selectUserAllMessage", pd);
+	}
+	
+	public User selectUserAllMessageWithUsername(PageData pd)throws Exception{
+		return (User) dao.findForObject("cn.itcast.ssm.bean.UserMapper.selectUserAllMessageWithUsername", pd);
+	}
+	
+	public void updateUserMessage(PageData pd) throws Exception {
+		dao.update("cn.itcast.ssm.bean.UserMapper.updateUserMessage", pd);
 	}
 }

@@ -27,16 +27,34 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
     <div class="container">
+    	<jsp:include page="common/Navigation.jsp"></jsp:include>
     	<div class="row">
     		<div class="col-md-12">
-    			<img src="Img/mainPage/title.jpg" class="img-responsive" alt="Cinque Terre" style="height:200px;width:100%;">
+    			<table class="table table-hover">
+    				<caption>战友搜索结果</caption>
+    				<thead>
+    					<tr>
+    						<th>头像</th>
+    						<th>名称</th>
+							<th>SteamID</th>
+    						<th>用户等级</th>
+    						<th>简介</th>
+    					</tr>
+    				</thead>
+    				<tbody>
+    					<c:forEach items="${ar}" var="ar">
+    					<tr>
+    						<th><img class="img-circle" src="Img/userPhoto/${ar.photo }" style="width:100px;height:100px;"></th>
+    						<th>${ar.userName }</th>
+    						<th>${ar.userSteamId }</th>
+    						<th>${ar.userLv }</th>
+    						<th>${ar.introduction }</th>
+    						<th><button onclick="location.href='enterConnectionPage.do?userId=${ar.userId}'">联系此战友</button></th>
+    					</tr>
+						</c:forEach>
+    				</tbody>
+    			</table>
     		</div>
-    	</div>
-    	<div class="row">
-    	
-    		<c:forEach items="${ar}" var="ar">
-			   ${ar.userName} <br />
-			</c:forEach>
     	</div>
     </div>
   </body>

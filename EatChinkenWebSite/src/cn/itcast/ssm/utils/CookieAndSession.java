@@ -3,6 +3,7 @@ package cn.itcast.ssm.utils;
 import java.util.Date;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
@@ -45,5 +46,22 @@ public class CookieAndSession {
 		username.setPath("/"); 
 		response.addCookie(username);
 		System.out.println("------------cookie删除完成---------");
+	}
+	
+	//从cookie中得到当前的用户name
+	public static String getUserNameFromCookie(HttpServletRequest request,HttpServletResponse response) {
+		String nowUserName = null;
+		Cookie[] cookies = request.getCookies();
+		if (cookies == null || cookies.length <= 0)  {
+			System.out.println("cookie为空");
+		}
+		for(int n=0;n<cookies.length;n++){
+			Cookie newCookie= cookies[n];
+			if(newCookie .getName().equals("nowUsername")) {
+				//代表当前有已经登陆的用户
+				nowUserName = newCookie.getValue();
+			}
+		}
+		return nowUserName;
 	}
 }

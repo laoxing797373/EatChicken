@@ -55,6 +55,7 @@
 	<mvc:interceptors>
 	     <mvc:interceptor> 
 	     	<mvc:mapping path="/SearchController/*.do" />
+	     	<mvc:mapping path="/UserMessageController/*.do" />
 	     	<bean class="cn.itcast.ssm.Interceptor.AuthorityProvingInterceptorCookie"/>
 	     </mvc:interceptor> 
 	</mvc:interceptors>  
